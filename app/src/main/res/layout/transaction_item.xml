@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.v7.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cvTransaction"
+        card_view:cardCornerRadius="5dp"
+        card_view:contentPadding="10dp"
+        card_view:cardElevation="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvChange"
+                android:maxWidth="310dp"
+                android:textSize="10pt"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvValue"
+                android:maxWidth="310dp"
+                android:textSize="10pt"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvDate"
+                android:maxWidth="310dp"
+                android:textSize="7pt"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/tvValue"
+                android:layout_alignParentRight="true" />
+
+            <!--<Button-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:id="@+id/btnCompany"-->
+                <!--android:background="@drawable/ic_delete_forever_red_600_18dp"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_alignParentEnd="true"-->
+                <!--android:layout_alignParentRight="true"/>-->
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+
