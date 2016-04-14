@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ public class TransactionListAdapter extends RecyclerView.Adapter<TransactionList
     private List<String> category;
     private DataBaseHelper dbHelper;
     private Context context;
+    private static final String TAG = "myLogs";
 
     public TransactionListAdapter(Context context) {
         this.context = context;
@@ -40,7 +42,7 @@ public class TransactionListAdapter extends RecyclerView.Adapter<TransactionList
         return category;
     }
 
-    public void readDataFromDB() {
+    public int readDataFromDB() {
         data = new ArrayList<>();
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         Cursor cursor = database.query(dbHelper.BILL_TABLE, null, null, null, null, null, null);
@@ -62,8 +64,13 @@ public class TransactionListAdapter extends RecyclerView.Adapter<TransactionList
 
             } while (cursor.moveToNext());
         }
+        for (int i = 0; i < data.size() ; i++) {
+
+            Log.d(TAG, "readDataFromDB: "+data.get(i).toString());
+        }
         cursor.close();
         dbHelper.close();
+        return data.get(data.size()-1).getValue();
     }
 
     private void readCategoryFromDB() {
@@ -94,8 +101,8 @@ public class TransactionListAdapter extends RecyclerView.Adapter<TransactionList
 
     @Override
     public void onBindViewHolder(TransactionListAdapter.TransactionViewHolder holder, int position) {
-        holder.change.setText(data.get(position).getChange());
-        holder.value.setText(data.get(position).getValue());
+        holder.change.setText(data.get(position).getChange()+"");
+        holder.value.setText(data.get(position).getValue()+"");
         holder.date.setText(DateFormat.format("MM.dd.yyyy", new Date(data.get(position).getDate())).toString());
     }
 

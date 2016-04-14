@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         adapter = new TransactionListAdapter(this);
         rv.setAdapter(adapter);
-        currentValue = adapter.getData().get(adapter.getData().size()).getValue();
+        if (adapter.getData().size()>0) currentValue = adapter.getData().get(adapter.getData().size()-1).getValue();
+                else currentValue = 0;
     }
 
     private void showAddTransactionDialog() {
@@ -66,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int whichButton) {
                 adapter.getDbHelper().insertTransaction(spinner.getSelectedItemPosition(), Integer.parseInt(etChange.getText().toString()), currentValue, etComment.getText().toString());
 
-                adapter.readDataFromDB();
+                currentValue = adapter.readDataFromDB();
                 adapter.notifyDataSetChanged();
             }
         });

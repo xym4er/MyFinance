@@ -9,7 +9,7 @@
         android:id="@+id/etChange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number" />
+        android:inputType="none" />
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

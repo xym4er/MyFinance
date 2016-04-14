@@ -60,6 +60,10 @@ public class BillDTO {
         return change;
     }
 
+//    public String getChangetoString() {
+//        return change;
+//    }
+
     public void setChange(int change) {
         this.change = change;
     }
@@ -78,5 +82,17 @@ public class BillDTO {
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public String toString() {
+        return "BillDTO{" +
+                "ID=" + ID +
+                ", date=" + date +
+                ", categoryID=" + categoryID +
+                ", change=" + change +
+                ", value=" + value +
+                ", comment='" + comment + '\'' +
+                '}';
     }
 }

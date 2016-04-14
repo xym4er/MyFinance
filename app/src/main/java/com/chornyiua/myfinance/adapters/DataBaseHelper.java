@@ -44,10 +44,11 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 + CATEGORY_KEY_ID + " integer primary key autoincrement,"
                 + CATEGORY_NAME + " text" + ");");
 
-        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES ('Products1');");
-        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES ('Products2');");
-        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES ('Products3');");
-        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES ('Products4');");
+        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES (1,'Products1');");
+        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES (2,'Products2');");
+        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES (3,'Products3');");
+        db.execSQL("INSERT INTO "+CATEGORY_TABLE+" VALUES (4,'Products4');");
+        db.execSQL("INSERT INTO "+BILL_TABLE+" ("+BILL_DATE+","+BILL_CATEGORY_ID+","+BILL_CHANGE+","+BILL_VALUE+","+BILL_COMMENT+") VALUES ("+System.currentTimeMillis()+",1,0,0,'');");
     }
 
     @Override
